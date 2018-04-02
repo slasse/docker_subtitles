@@ -1,0 +1,35 @@
+{% extends 'viewer/index.html' %}
+
+{% block body1 %}
+      <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-2 main">
+          <h1 class="page-header">details van {{ m_detail }}</h1>
+          <div class="row placeholders">
+
+      <div class="table-responsive">
+      <table class="table table-hover table-striped">
+      <thead>
+            <tr >
+                <th class="text-center"; bgcolor=" #333333"; style="color:white"> Nummer </th>
+                <th bgcolor=" #333333"; style="color:white"> Film </th>
+                <th bgcolor=" #333333"; style="color:white"> bestandsnaam </th>
+                <th bgcolor=" #333333"; style="color:white"> grootte </th>
+                <th bgcolor=" #333333"; style="color:white"> datum </th>
+                <th class="text-center" bgcolor=" #333333"; style="color:white"> subtitle search </th>
+                <th class="text-center" bgcolor=" #333333"; style="color:white"> DELETE </th>
+            </tr>
+       </thead>
+       <tbody>
+            {% for x in selected_movie %}
+                <tr class="info">
+                        <td align="center">{{ forloop.counter }}</td>
+                        <td>{{ x.m_name }}</td>
+                        <td>{{ x.file_name }}</td>
+                        <td>{{ x.file_size }} MB</td>
+                        <td>{{ x.file_date }}</td>
+                        <td align="center"> <a href="{% url 'viewer:download_view' x.file_name %}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></td>
+                        <td align="center"> <a href="{% url 'viewer:delete_view' x.file_name %}">&#9940</a></td>
+                </tr>
+            {% endfor %}
+       </tbody>
+       </div>
+{% endblock %}

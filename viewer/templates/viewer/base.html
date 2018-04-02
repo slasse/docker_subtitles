@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>subtitle list</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'viewer/css/bootstrap.min.css' %}" type = "text/css"/>
+</head>
+
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Viewer</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/viewer">test1</a></li>
+            <li><a href="/viewer">test2</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'viewer:refresh_list' %}">refresh folders</a></li>
+            <li><a href="/admin">Admin</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+<div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+
+{% block body %}
+{% endblock %}
+        </div>
+
+      </div>
+</div>
+{% block body1 %}
+{% endblock %}
+  </body>
+</html>
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
